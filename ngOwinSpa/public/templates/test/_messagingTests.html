@@ -1,0 +1,43 @@
+﻿<div ng-controller="messagingTestCtrl as vm">
+    <br /><br />
+
+    <div class="row">
+        <div class="col-md-2"><code>GET /api/echo/greeting</code></div>
+        <div class="col-md-10"><span class="text-danger" ng-if="!vm.greeting">Failed!</span><span class="text-success" ng-if="vm.greeting">{{vm.greeting}}</span></div>
+    </div>
+    <br /><br/>
+
+    Type a message and press the <kbd>Test Web API</kbd> button.
+    A <code>POST /api/echo</code> will be made and the results from the server will be displayed, below.
+    <br /><br />
+
+    <div class="row">
+        <div class="col-md-2"><button class="btn btn-default" ng-click="vm.testWebApi()">Test Web API</button></div>
+        <div class="col-md-10"><input type="text" class="form-control" ng-model="vm.apiMessage" /></div>
+    </div>
+    <div ng-if="vm.postData.id">
+        <br />
+        <div style="margin-left: 100px">
+            <div class="row">
+                <span class="col-md-1">Id:</span> <span class="col-md-11">{{vm.postData.id}}</span>
+            </div>
+            <div class="row">
+                <span class="col-md-1">Message:</span> <span class="col-md-11">{{vm.postData.message}}</span>
+            </div>
+            <div class="row">
+                <span class="col-md-1">Timestamp:</span> <span class="col-md-11">{{vm.postData.timestamp}}</span>
+            </div>
+        </div>
+    </div>
+    <br /><br />
+    
+    Each time you press the <kbd>Test Lamb</kbd> button, the controller will call a service method.
+    That method will increment a value within the service and publish a message on the bus.
+    The controller is subscibed to that message and will update the view model when invoked.
+    <br /><br />
+    
+    <div class="row">
+        <div class="col-md-2"><button class="btn btn-default" ng-click="vm.testLamb()">Test Lamb</button></div>
+        <div class="col-md-10">You have pressed the button <span>{{vm.lambCount}}</span> time<span ng-if="vm.lambCount !== 1">s</span>.</div>
+    </div>
+</div>

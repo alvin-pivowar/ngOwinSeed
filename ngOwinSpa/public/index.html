@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html ng-app="ngOwinSpa">
+<head>
+    <title>ngOwinSeed</title>
+    <base href="/" />
+
+    <link href="cdn/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="cdn/font-awesome/font-awesome.css" rel="stylesheet" />
+
+    <link href="css/ngOwinSpa.css" rel="stylesheet" />
+
+    <script src="cdn/angular/angular.js"></script>
+    <script src="cdn/angular/angular-route.js"></script>
+
+    <script src="scripts/apMessaging/ApMessagingBundle.js"></script>
+    <script src="scripts/test/TestBundle.js"></script>
+    <script src="scripts/ngOwinSpa.js"></script>
+</head>
+<body class="container">
+    <h1 class="text-center">AngularJS OWIN SPA Framework</h1>
+    <h4 class="text-center">AngularJS is <span ng-hide="{{true}}">not</span> working</h4>
+
+    <div class="row">
+        <div ng-view></div>
+        <div ng-include='"/templates/test/_messagingTests.html"'></div>
+    </div>
+</body>
+</html>
